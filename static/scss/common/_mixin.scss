@@ -1,0 +1,101 @@
+// 
+// @TODO: Add docs to function-name!
+//
+$baseFonSize: 16px !default;
+$baseEm : 1rem !default;
+
+@function fnrem($n, $m:$baseFonSize) {
+    @return $n / $m * $baseEm ;
+}
+
+@mixin border-sizing(){
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -webkit-box-sizing:border-box; 
+    -ms-box-sizing:border-box; 
+    -o-box-sizing:border-box; 
+}
+
+@mixin border-radius($px){
+    -webkit-border-radius: $px;
+    -moz-border-radius: $px;
+    -ms-border-radius: $px;
+    -o-border-radius: $px;
+    border-radius: $px;
+}
+
+@mixin translate($x,$y){
+    -webkit-transform:  translate($x,$y);
+    -moz-transform: translate($x,$y);
+    -ms-transform: translate($x,$y);
+    -o-transform: translate($x,$y);
+    transform: translate($x,$y);
+}
+@mixin skew($x,$y){
+    -webkit-transform:  skew($x,$y);
+    -moz-transform: skew($x,$y);
+    -ms-transform: skew($x,$y);
+    -o-transform: skew($x,$y);
+    transform: skew($x,$y);
+}
+@mixin rotate($x){
+    -webkit-transform:  rotate($x);
+    -moz-transform: rotate($x);
+    -ms-transform: rotate($x);
+    -o-transform: rotate($x);
+    transform: rotate($x);
+}
+@mixin after(){
+    content:"";
+    display:block;
+    position:absolute;
+    left:0;
+    bottom:0;
+    width: 100%;
+    height :fnrem(89px);
+    background:url(../images/bg.png) repeat-x 0 bottom;
+    background-size:auto fnrem(89px);
+    z-index:-1;
+}
+@mixin before(){
+    content:"";
+    display:block;
+    width:100%;
+    height: fnrem(137px);
+    position:absolute;
+    top:0;
+    left:0;
+    background:url(../images/bg1.png) repeat-x 0 0;
+    background-size:auto fnrem(137px);
+    z-index:-1;
+}
+@mixin translate3d($x,$y,$z){
+    -webkit-transform:  translate3d($x,$y,$z);
+    -moz-transform: translate3d($x,$y,$z);
+    -ms-transform: translate3d($x,$y,$z);
+    -o-transform: translate3d($x,$y,$z);
+    transform: translate3d($x,$y,$z);
+}
+@mixin animation($o){
+    -webkit-animation:  $o;
+    -moz-animation: $o;
+    -ms-animation: $o;
+    -o-animation: $o;
+    animation: $o;
+}
+%clearfix{
+
+    zoom:1;
+    &:after{
+        content: ""; 
+        display: block; 
+        height: 0; 
+        clear: both;
+        visibility: hidden;
+    }
+}
+%nowrap{
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
